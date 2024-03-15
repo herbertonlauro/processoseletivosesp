@@ -12,4 +12,8 @@ import java.util.List;
 @ApplicationScoped
 public class PessoaRepository implements PanacheRepository<Pessoa> {
 
+    public List<Pessoa> buscarPessoasPorNome(String nome) {
+        return find("upper(nome) like ?1", "%"+nome.toUpperCase()+"%").list();
+    }
+
 }
