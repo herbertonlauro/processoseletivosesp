@@ -1,0 +1,43 @@
+version: '3.7'
+
+services:
+  quarkus-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '9090:8080'
+    environment:
+      - QUARKUS_DATASOURCE_URL=jdbc:postgresql://postgres:5432/dbseletivosesp
+      - QUARKUS_DATASOURCE_USERNAME=seletivosesp
+      - QUARKUS_DATASOURCE_PASSWORD=seletivosesp
+    networks:
+      - sesp-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  postgres:
+    image: 'postgres:16.2'
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=dbseletivosesp
+      - POSTGRES_USER=seletivosesp
+      - POSTGRES_PASSWORD=seletivosesp
+    networks:
+      - sesp-network
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+networks:
+  sesp-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
