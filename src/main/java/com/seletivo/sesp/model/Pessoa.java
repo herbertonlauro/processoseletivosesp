@@ -27,7 +27,7 @@ public class Pessoa {
 
     @NotBlank(message = "não pode ser nulo ou vazio")
     @Schema(example = "Gustavo Lemos", required = true)
-    @Column(name = "m")
+    @Column(name = "nome")
     private String nome;
 
     @NotBlank(message = "não pode ser nulo ou vazio")
