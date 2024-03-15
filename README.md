@@ -13,7 +13,7 @@ Deve ser implementada uma API Rest contendo pelo menos a estrutura de dados abai
 ### Requisitos Gerais:
 > **_Requisitos:_**
 > - O projeto deve ser criado utilizando MAVEN 3;
-> - Utilizar linguagem Java 17 (ou superior) e SpringBoot Framework;
+> - Utilizar linguagem Java 17 (ou superior) e SpringBoot(NESSE PROJETO EU USEI O QUARKUS.) Framework;
 > - Para o armazenamento de dados poderá ser utilizado os seguintes bancos: Oracle, PostgreSQL, H2;
 > - O projeto deve conter todas as operações básicas (CRUD) além das funcionalidades específicas listadas a seguir;
 > - A estrutura do banco de dados deve ser gerada a partir do mapeamento das entidades;
