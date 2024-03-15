@@ -16,4 +16,22 @@ public class PessoaRepository implements PanacheRepository<Pessoa> {
         return find("upper(nome) like ?1", "%"+nome.toUpperCase()+"%").list();
     }
 
+    public List<Pessoa> filtrarNomeMaeNascimento(String nome, String mae, LocalDate nascimento) {
+        StringBuilder query = new StringBuilder("WHERE 1=1");
+        Parameters params = new Parameters();
+        if (nome != null && !nome.isEmpty()) {
+            query.append(" OR upper(nome) like concat('%', upper(:nome), '%')");
+            params.and("nome", nome);
+        }
+        if (mae != null && !mae.isEmpty()) {
+            query.append(" OR upper(mae) like concat('%', upper(:mae), '%')");
+            params.and("mae", mae);
+        }
+        if (nascimento != null) {
+            query.append(" OR nascimento = :nascimento");
+            params.and("nascimento", nascimento);
+        }
+        return find(query.toString(), params).list();
+    }
+
 }
