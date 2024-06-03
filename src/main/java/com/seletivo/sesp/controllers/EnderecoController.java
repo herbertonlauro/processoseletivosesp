@@ -30,9 +30,10 @@ public class EnderecoController {
     }
 
 
+
     @POST
     public Response criar(@RequestBody EnderecoRequest enderecoRequest) {
-        var endereco = enderecoService.salvarEndereco(enderecoRequest);
+        EnderecoResponse endereco = enderecoService.salvarEndereco(enderecoRequest);
         return Response.created(URI.create("/endereco")).entity(endereco).build();
     }
 

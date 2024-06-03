@@ -35,8 +35,10 @@ public class PessoaRepository implements PanacheRepository<Pessoa> {
     }
 
     public Pessoa buscaPorCpf(String cpf){
+
         return find("cpf", cpf).firstResult();
     }
+
     public List<Pessoa> consultarPorCidadeEstado(String cidade, String estado) {
         return find("upper(endereco.cidade) like ?1 AND upper(endereco.estado) like ?2",
                 "%"+cidade.toUpperCase()+"%","%"+estado.toUpperCase()+"%").list();

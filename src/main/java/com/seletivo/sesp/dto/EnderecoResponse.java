@@ -14,7 +14,6 @@ import org.eclipse.microprofile.openapi.annotations.media.Schema;
 public class EnderecoResponse {
 
     private Long id;
-
     @Schema(example = "Rua faria Lima", required = true)
     private String logradouro;
     @Schema(example = "Bairro do limão", required = true)

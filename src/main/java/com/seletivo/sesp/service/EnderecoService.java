@@ -2,6 +2,7 @@ package com.seletivo.sesp.service;
 
 import com.seletivo.sesp.dto.EnderecoRequest;
 import com.seletivo.sesp.dto.EnderecoResponse;
+import com.seletivo.sesp.dto.PessoaDTO;
 import com.seletivo.sesp.mappers.EnderecoMapper;
 import com.seletivo.sesp.mappers.PessoaMapper;
 import com.seletivo.sesp.model.Endereco;
@@ -40,7 +41,7 @@ public class EnderecoService {
         for (Endereco endereco : enderecos) {
             EnderecoResponse enderecoResponse = enderecoMapper.toDTO(endereco);
             enderecoResponses.add(enderecoResponse);
-            var pessoaDTO = pessoaMapper.toDTO(endereco.getPessoa());
+            PessoaDTO pessoaDTO = pessoaMapper.toDTO(endereco.getPessoa());
             enderecoResponse.setPessoa(pessoaDTO);
         }
         return enderecoResponses;

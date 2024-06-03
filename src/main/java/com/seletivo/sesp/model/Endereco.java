@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 
 @Getter
 @Setter
@@ -49,5 +51,4 @@ public class Endereco {
     @OneToOne
     @JoinColumn(name = "idPessoa")
     private Pessoa pessoa;
-
 }

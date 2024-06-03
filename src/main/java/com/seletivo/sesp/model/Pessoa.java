@@ -72,6 +72,8 @@ public class Pessoa {
 
     @PrePersist
     public void prePersist() {
+
         cadastradoEm = LocalDate.now();
+
     }
 }
